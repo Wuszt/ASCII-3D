@@ -8,12 +8,15 @@ public:
 	Renderer( Uint32 height, Float aspectRatio, Uint32 pixelWidth);
 
 	void Draw();
+	void Clear();
 	void SetPixel( Int32 x, Int32 y, Char value );
 	void SetPixel( Int32 x, Int32 y, Float brightness );
 	void FillLine( Int32 line, Char pixel );
 	char GetPixelChar( Float brightness );
 	Int32 GetMaxX();
 	Int32 GetMaxY();
+
+	VectorInt2 GetResolution() const { return m_resolution; }
 
 private:
 	void InitializeBuffer();

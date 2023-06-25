@@ -33,6 +33,11 @@ void Renderer::Draw()
 	SetConsoleActiveScreenBuffer( m_frontBuffer );
 }
 
+void Renderer::Clear()
+{
+	InitializeBuffer();
+}
+
 void Renderer::SetPixel( Int32 x, Int32 y, Float brightness )
 {
 	SetPixel( x, y, GetPixelChar( brightness ) );
@@ -72,7 +77,8 @@ char Renderer::GetPixelChar( Float brightness )
 
 void Renderer::InitializeBuffer()
 {
-	m_frameBuffer.resize( ( m_bufferResolution.GetIntX() + 3u ) * ( m_bufferResolution.GetIntY() + 2u ) );
+	m_frameBuffer.clear();
+	m_frameBuffer.resize( ( m_bufferResolution.GetIntX() + 3u ) * ( m_bufferResolution.GetIntY() + 2u ), ' ');
 
 	for ( Int32 x = 0; x <= static_cast< Int32 >( m_bufferResolution.GetIntX() + 2u ); ++x )
 	{
