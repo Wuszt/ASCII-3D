@@ -68,10 +68,10 @@ char Renderer::GetPixelChar( Float brightness )
 {
 	brightness = Math::Clamp( 0.0f, 1.0f, brightness );
 
-	constexpr char colors[] = " -.:+#%@";
+	constexpr char colors[] = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
 	constexpr Uint32 colorsAmount = sizeof( colors ) / sizeof( char );
 
-	const Uint32 index = static_cast< Uint32 >( ( brightness ) * ( colorsAmount - 2u ) );
+	const Uint32 index = static_cast< Uint32 >( ( 1.0f - brightness ) * ( colorsAmount - 2u ) );
 	return colors[ index ];
 }
 
